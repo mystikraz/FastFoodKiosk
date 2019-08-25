@@ -1,0 +1,5 @@
+<div *ngIf="ordersService.orders.length">
+    <h2>Orders</h2>
+
+    <div *ngFor='let order of ordersService.orders'>{{order.menu.name}}</div>
+</div>

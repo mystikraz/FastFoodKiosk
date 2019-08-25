@@ -4,4 +4,10 @@
 border-top: 1px solid grey;
 padding-top: 10px;
 }
+.scrollable {
+    height: 475px;
+    overflow-y: scroll;
+    overflow-block: initial;
+    /* overflow: scroll; */
+  }
 

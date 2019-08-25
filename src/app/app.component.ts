@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MenuService } from './Service/menu.service';
+import { OrdersService } from './Service/orders.service';
 import { MenuItem } from './model/menu-item';
+import { orderedItem } from './model/orderedItem';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +16,8 @@ selectedMenu:MenuItem;
 selectedChildMenu:MenuItem;
 quantity:number=0;
 childMenuName:string;
-
-  constructor(private menuService:MenuService){}
+orderedItemList:orderedItem[]=[];
+  constructor(private menuService:MenuService,private orderService:OrdersService){}
 ngOnInit(){
   this.getMenuGroups();
 }
@@ -42,6 +44,26 @@ ngOnInit(){
     this.selectedChildMenu=menu;
     this.childMenuName=menu.name;
     console.log(this.selectedChildMenu);
+    console.log(this.selectedChildMenu.name);
+    console.log(this.selectedChildMenu);
+
+  }
+
+  addToOrder(){
+    console.log('addtoorder');
+    console.log(this.selectedChildMenu);
+    let order =new orderedItem();
+      order.menu=this.selectedChildMenu;
+      console.log('order: '+order.menu);
+    for(var i=0;i<this.quantity;i++){
+      // this.orderedItemList.push(order);
+      this.orderService.add(order);
+    }
+
+      console.log('OrderedItemList: '+this.orderedItemList);
+  }
+  showOrder(){
+    console.log('showOrder');
   }
 
 }

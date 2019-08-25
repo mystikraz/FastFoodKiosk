@@ -1,8 +1,8 @@
      
      <div *ngIf="menuItems">
      <div class="col-xs-6 col-md-3" *ngFor='let menu of menuItems' (click)="onSelect(menu)">
-        <a routerLink=""class="thumbnail">
-          <img height="200" width="200" src="{{menu.imgSrc}}" alt="a">
+        <a routerLink="" class="thumbnail">
+          <img height="100" width="100" src="{{menu.imgSrc}}" alt="a">
           <div class="caption text-center">
               <p>{{menu.name}}</p>
               <p>Rs. {{menu.rate}}</p>
